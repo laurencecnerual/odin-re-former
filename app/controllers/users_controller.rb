@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -7,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to new_user_path
+      redirect_to users_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,7 +27,7 @@ class UsersController < ApplicationController
     params[:user].delete_if { |key, value| value.blank? }
 
     if @user.update(user_params)
-      redirect_to new_user_path
+      redirect_to users_path
     else
       render :edit, status: :unprocessable_entity
     end
