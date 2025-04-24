@@ -1,30 +1,30 @@
 <%= form_with model: @user do |form| %>
-  <h1>Create User</h1>
+  <h1>Update User</h1>
   <div>
     <%= form.label :username %><br>
-    <%= form.text_field :username, placeholder: "Enter a unique username", required: true %>
+    <%= form.text_field :username%>
     <% @user.errors.full_messages_for(:username).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= form.label :email, "Email Address" %><br>
-    <%= form.email_field :email, placeholder: "Enter your email address", required: true %><br>
+    <%= form.label :email %><br>
+    <%= form.email_field :email %><br>
     <% @user.errors.full_messages_for(:email).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
 <div>
-  <%= form.label :password, "Desired Password" %><br>
-  <%= form.password_field  :password, placeholder: "Enter a strong password", required: true %><br>
+  <%= form.label :password %><br>
+  <%= form.password_field  :password %><br>
   <% @user.errors.full_messages_for(:password).each do |message| %>
     <div><%= message %></div>
   <% end %>
 </div>
 
   <div>
-    <%= form.submit "Create New User"%>
+    <%= form.submit "Submit Changes"%>
   </div>
 <% end %>
